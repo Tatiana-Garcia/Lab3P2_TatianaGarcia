@@ -52,7 +52,12 @@ public class Clientes {
 
     @Override
     public String toString() {
-        return "Clientes{" + "ID=" + ID + ", nombre=" + nombre + ", vehiculos=" + vehiculos + ", saldo=" + saldo + '}';
+        String ve = "No hay vehiculos";
+        if(!vehiculos.isEmpty()){
+            ve= vehiculos.toString();
+        }
+        
+        return "Clientes{" + "ID=" + ID + ", nombre=" + nombre + ", vehiculos=" + ve + ", saldo=" + saldo + '}';
     }
     
 }

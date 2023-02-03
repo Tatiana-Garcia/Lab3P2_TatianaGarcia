@@ -71,7 +71,15 @@ public class Concesionaria {
 
     @Override
     public String toString() {
-        return "Concesionaria{" + "nombre=" + nombre + ", ID=" + ID + ", direccion=" + direccion + ", vehiculos=" + vehiculos + ", clientes=" + clientes + ", saldo=" + saldo + '}';
+        String ve = "No hay vehiculos";
+        String cl = "No hay un historial de clientes";
+        if(!vehiculos.isEmpty()){
+            ve= vehiculos.toString();
+        }
+        if(!clientes.isEmpty()){
+            cl= clientes.toString();
+        }
+        return "Concesionaria{" + "nombre=" + nombre + ", ID=" + ID + ", direccion=" + direccion + ", vehiculos=" + ve + ", clientes=" + cl + ", saldo=" + saldo + '}';
     }
     
     
