@@ -58,6 +58,14 @@ public class Lab3P2_TatianaGarcia {
                             concesionario.get(pos).setDireccion(direccion);
                         }
                     }
+                    if(op ==4 ){
+                        String s=""; 
+                        for (Object t : vehiculos) {
+                           s += "\nPosicion: "+vehiculos.indexOf(t)+"\n"+t+"\n"; 
+                        }
+
+                        System.out.println(s);
+                    }
                     break; 
                 }
                 case 2: {
@@ -93,15 +101,24 @@ public class Lab3P2_TatianaGarcia {
                             
                         }
                     }
+                    if(op ==4){
+                        String s=""; 
+                        for (Object t : vehiculos) {
+                           s += "\nPosicion: "+vehiculos.indexOf(t)+"\n"+t+"\n"; 
+                        }
+
+                        System.out.println(s);
+                    }
                     break; 
                 }  
-                case 4:
+                case 4:{
                     System.out.println("Salida del sistema");
                     break; 
+                }
                     
             }
             
-        }while(menu != 5);
+        }while(menu != 4);
     }//fin del main
     static Concesionaria con(){
         Concesionaria retorno;
@@ -157,7 +174,7 @@ public class Lab3P2_TatianaGarcia {
         do{
             System.out.println("Ingrese la cantidad llantas: ");
             cant_llantas = leer.nextInt();
-        }while(cant_llantas !=2||cant_llantas != 4);
+        }while(cant_llantas!=2&&cant_llantas!= 4);
         
         
         if(cant_llantas ==2){

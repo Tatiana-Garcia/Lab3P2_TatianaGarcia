@@ -43,7 +43,7 @@ public class CamiondeCarga extends Vehiculos{
 
     @Override
     public String toString() {
-        return "CamiondeCarga{" + "volumen=" + volumen + ", altura=" + altura + ", excavadora=" + excavadora + '}';
+        return super.toString()+"CamiondeCarga{" + "volumen=" + volumen + ", altura=" + altura + ", excavadora=" + excavadora + '}';
     }
     
     

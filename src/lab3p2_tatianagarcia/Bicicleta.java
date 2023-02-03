@@ -42,7 +42,7 @@ public class Bicicleta extends Vehiculos{
 
     @Override
     public String toString() {
-        return "Bicicleta{" + "descripcion=" + descripcion + ", radio=" + radio + ", tipo=" + tipo + '}';
+        return super.toString()+"Bicicleta{" + "descripcion=" + descripcion + ", radio=" + radio + ", tipo=" + tipo + '}';
     }
     
     

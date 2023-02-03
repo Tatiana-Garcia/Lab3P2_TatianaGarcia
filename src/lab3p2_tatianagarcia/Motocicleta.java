@@ -33,7 +33,7 @@ public class Motocicleta extends Vehiculos{
 
     @Override
     public String toString() {
-        return "Motocicleta{" + "desplazamiento=" + desplazamiento + ", electrica=" + electrica + '}';
+        return super.toString()+"Motocicleta{" + "desplazamiento=" + desplazamiento + ", electrica=" + electrica + '}';
     }
     
 }
