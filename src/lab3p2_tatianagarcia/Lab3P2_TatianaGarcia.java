@@ -8,6 +8,7 @@ public class Lab3P2_TatianaGarcia {
     static Scanner leer = new Scanner(System.in);
     static ArrayList<Concesionaria> concesionario = new ArrayList();
     static ArrayList<Vehiculos>vehiculos = new ArrayList();
+    static ArrayList<Clientes>clientes = new ArrayList();
 
     public static void main(String[] args) {
         //ArrayList<Vehiculos>vehiculos = new ArrayList();
@@ -58,19 +59,41 @@ public class Lab3P2_TatianaGarcia {
                             concesionario.get(pos).setDireccion(direccion);
                         }
                     }
-                    if(op ==4 ){
+                    break; 
+                }
+                case 2: {
+                    int op=0;
+                    do{
+                        System.out.println("Menu de opciones:\n"
+                                + "1-Crear\n"
+                                + "2-Eliminar\n"
+                                + "3-Listar\n\n"
+                                + "Ingrese opcion: ");
+                        op = leer.nextInt();
+                    }while(op<1||op>3);
+                    if(op ==1){
+                        clientes.add(clientes());
+                    }
+                    if(op ==2){
+                        int pos ;
+                        System.out.println("Ingresa la posicion del cliente a borrar: ");
+                        pos = leer.nextInt();
+                        if(pos>=0 && pos<clientes.size()){
+                            clientes.remove(pos);
+                        } 
+                    }
+                    if(op ==3){
+                        
                         String s=""; 
-                        for (Object t : vehiculos) {
-                           s += "\nPosicion: "+vehiculos.indexOf(t)+"\n"+t+"\n"; 
+                        for (Object t : clientes) {
+                           s += "\nPosicion: "+clientes.indexOf(t)+"\n"+t+"\n"; 
                         }
 
                         System.out.println(s);
                     }
                     break; 
                 }
-                case 2: {
-                    break; 
-                }
+                
                 case 3: {
                     int op=0;
                     do{
@@ -83,7 +106,16 @@ public class Lab3P2_TatianaGarcia {
                         op = leer.nextInt();
                     }while(op<1||op>4);
                     if(op ==1){
-                        vehiculos.add(CrearVehiculo());
+                        Vehiculos t = CrearVehiculo();
+                        vehiculos.add(t);
+                        System.out.println("A que concecionario quiere que vaya el vehiculo? Ingrese posicion: ");
+                        int pos = leer.nextInt();
+                        
+                        if(pos>=0 && pos<concesionario.size()){
+                            concesionario.get(pos).getVehiculos().add(t);
+                        }
+                        
+                        
                     }
                     if(op ==2){
                         int pos ;
@@ -401,6 +433,27 @@ public class Lab3P2_TatianaGarcia {
             
         }while(menu != 4);
     }//fin del main
+    
+    static Clientes clientes(){
+        Clientes retorno;
+        String nombre;
+        ArrayList<Vehiculos>vehiculos = new ArrayList();///Vehiculos a propiedad del cliente 
+        int saldo;
+        
+        System.out.println("Ingrese nombre de concesionaria: ");
+        leer = new Scanner(System.in);
+        nombre = leer.nextLine();
+        
+        System.out.println("Ingrese saldo ");
+        leer = new Scanner(System.in);
+        saldo = leer.nextInt();
+        
+        
+        
+        retorno = new Clientes(clientes.size()+1, nombre, saldo);
+        return retorno;
+    }
+    
     static Concesionaria con(){
         Concesionaria retorno;
         String nombre; 
