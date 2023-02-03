@@ -153,8 +153,13 @@ public class Lab3P2_TatianaGarcia {
         System.out.println("Ingrese precio: ");
         precio = leer.nextInt();
         
-        System.out.println("Ingrese la cantidad llantas: ");
-        cant_llantas = leer.nextInt();
+        cant_llantas =0;
+        do{
+            System.out.println("Ingrese la cantidad llantas: ");
+            cant_llantas = leer.nextInt();
+        }while(cant_llantas !=2||cant_llantas != 4);
+        
+        
         if(cant_llantas ==2){
             int op = 0; 
             do {
@@ -218,6 +223,74 @@ public class Lab3P2_TatianaGarcia {
             }//Fin del switch
             
         }//Fin del if llantas ==2
+        if(cant_llantas ==4){
+            int op = 0; 
+            do {
+            System.out.println("Opciones de Vehiculo: \n"
+                    + "1. Carro\n"
+                    + "2. Camion de Carga\n"
+                    + "3. Bus");
+            op = leer.nextInt();
+            }while(op<1||op>3);
+            switch (op) {
+                case 1: {
+                    int cant_puertas; 
+                    String motor; 
+                    int velocidad; 
+                    
+                    System.out.println("Ingrese cantidad de puertas: ");
+                    cant_puertas = leer.nextInt();
+                    
+                    System.out.println("Ingrese descripcion del motor: ");
+                    leer = new Scanner(System.in);
+                    motor = leer.nextLine();
+                    
+                    System.out.println("Ingrese velocidad maxima: ");
+                    velocidad = leer.nextInt();
+                    
+                    retorno = new Carro(cant_puertas, motor, velocidad, color, marca, modelo, year, precio, cant_llantas);
+                    break;
+                }
+                case 2: { 
+                    int volumen; 
+                    int altura; 
+                    boolean excavadora; 
+                    
+                    System.out.println("Ingrese volumen maximo de carga: ");
+                    volumen = leer.nextInt();
+                    
+                    System.out.println("Ingrese altura del camion: ");
+                    altura = leer.nextInt();
+                    
+                    int op2 = 0; 
+                    do {
+                    System.out.println("Tiene retroexcavadoras? \n"
+                            + "1. Si\n"
+                            + "2. No");
+                    op2 = leer.nextInt();
+                    }while(op2<1||op2>2);
+                    if(op2 ==1 ){
+                        excavadora = true;
+                    }
+                    else{
+                        excavadora = false; 
+                    }
+                    
+                    retorno = new CamiondeCarga(volumen, altura, excavadora, color, marca, modelo, year, precio, cant_llantas);
+                    break; 
+                }
+                case 3: {
+                    int pasajeros;  
+                    
+                    System.out.println("Ingrese pasajeros: ");
+                    pasajeros = leer.nextInt();
+                    
+                    retorno = new Bus(pasajeros, color, marca, modelo, year, precio, cant_llantas);
+                    
+                    break; 
+                }
+            }//Fin del switch
+        }//Fin if cant_llantas = 4
         
         return retorno; 
     }
