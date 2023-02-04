@@ -21,7 +21,8 @@ public class Lab3P2_TatianaGarcia {
                     + "1-CRUD Concesionaria\n"
                     + "2-CRUD Clientes\n"
                     + "3-CRUD Vehiculos\n"
-                    + "4-Salida\n\n"
+                    + "4-Compra/Venta de vehículos por parte de un cliente\n"
+                    + "5-Salida\n\n"
                     + "Ingrese opcion: ");
 
             menu = leer.nextInt();
@@ -425,8 +426,39 @@ public class Lab3P2_TatianaGarcia {
                     break; 
                 }  
                 case 4:{
-                    System.out.println("Salida del sistema");
+                    int op=0;
+                    do{
+                    System.out.println("Desea comprar o vender?\n"
+                            + "1.Comprar\n"
+                            + "2.Vender");
+                    }while(op<1||op>3);
+                    System.out.println(ListarS(concesionario));
+                    if(op ==1){
+                        
+                        System.out.println("Ingrese la posicion de la concesionaria a comprar: ");
+                        int pos = leer.nextInt();
+                        if(pos>=0 && pos<concesionario.size()){
+                            System.out.println(Listar(concesionario.get(pos).getVehiculos()));
+                        } 
+                        
+                        System.out.println(ListarS(clientes));
+                        System.out.println("Ingrese la posicion del cliente que desea comprar vehiculo: ");
+                        int pos2 = leer.nextInt();
+                        if(pos2>=0 && pos2<clientes.size()){
+                            concesionario.get(pos).getClientes().add(clientes.get(pos2));
+                        } 
+                        
+                        
+                    }
+                    if(op ==2){
+                        
+                    }
+                    
                     break; 
+                }
+                case 5:{
+                    System.out.println("Salida del sistema");
+                    break;
                 }
                     
             }
@@ -674,5 +706,13 @@ public class Lab3P2_TatianaGarcia {
                 }
                 return s;
     }
-    
+    static String ListarS(ArrayList lista){
+        String s=""; 
+        for (Object t : lista) {
+           s += "\nPosicion: "+lista.indexOf(t)+"\n"+t+"\n"; 
+        }
+
+        return s;
+    }
+        
 }
