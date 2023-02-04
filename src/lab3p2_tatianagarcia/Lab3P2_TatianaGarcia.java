@@ -96,334 +96,335 @@ public class Lab3P2_TatianaGarcia {
                 }
                 
                 case 3: {
-                    int op=0;
-                    do{
-                        System.out.println("Menu de opciones:\n"
-                                + "1-Crear\n"
-                                + "2-Eliminar\n"
-                                + "3-Modificar\n"
-                                + "4-Listar\n\n"
-                                + "Ingrese opcion: ");
-                        op = leer.nextInt();
-                    }while(op<1||op>4);
-                    if(op ==1){
-                        Vehiculos t = CrearVehiculo();
-                        vehiculos.add(t);
-                        System.out.println("A que concecionario quiere que vaya el vehiculo? Ingrese posicion: ");
-                        int pos = leer.nextInt();
-                        
-                        if(pos>=0 && pos<concesionario.size()){
-                            concesionario.get(pos).getVehiculos().add(t);
-                        }
-                        
-                        
-                    }
-                    if(op ==2){
-                        int pos ;
-                        System.out.println("Ingresa la posicion del vehiculo a eliminar: ");
-                        pos = leer.nextInt();
-                        if(pos>=0 && pos<vehiculos.size()){
-                            vehiculos.remove(pos);
-                        } 
-                    }
-                    if(op ==3){
-                        int pos ;
+                    if(!concesionario.isEmpty()){
+                        int op=0;
                         do{
-                        System.out.println("Ingresa la posicion del vehiculo a modificar: ");
-                        pos = leer.nextInt();
-                        }while(pos<0|| pos>vehiculos.size());
-                        Object posicion = vehiculos.get(pos);
-                        
-                        int op2 = 0;
-                        if(vehiculos.get(pos) instanceof Motocicleta){
-                            System.out.println("Que desea modificar?\n"
-                                    + "1-color\n"
-                                    + "2-marca\n"
-                                    + "3-modelo\n"
-                                    + "4-año\n"
-                                    + "5-precio\n"
-                                    + "6-Desplazamiento\n"
-                                    + "7-Es electrica?\n"
-                                    + "Elija opcion:");
-                            op2 = leer.nextInt();
-                            if (op2 == 1) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Motocicleta) posicion).setColor(newVal);
-                            }else if (op2 == 2) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Motocicleta) posicion).setMarca(newVal);
-                            }else if (op2 == 3) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Motocicleta) posicion).setModelo(newVal);
-                            }else if (op2 == 4) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
-                                    ((Motocicleta) posicion).setYear(newVal);
-                            }else if (op2 == 5) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    double newVal = leer.nextDouble();
-                                    ((Motocicleta) posicion).setPrecio(newVal);
-                            }else if (op2 == 6) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
-                                    ((Motocicleta) posicion).setDesplazamiento(newVal);
-                            }if (op2 == 7) {
-                                    
-                                    String tipo;
-                                    
-                                    int op3 = 0; 
-                                    
-                                    do {
-                                    System.out.println("Tipo de Bicicleta \n"
-                                            + "1. BMX\n"
-                                            + "2. de calle");
-                                    op3 = leer.nextInt();
-                                    }while(op3<1||op3>2);
-                                    if(op2 ==1 ){
-                                        tipo = "BMX";
-                                    }
-                                    else{
-                                        tipo = "de calle"; 
-                                    }
-                                    
-                                    ((Bicicleta) posicion).setTipo(tipo);  
+                            System.out.println("Menu de opciones:\n"
+                                    + "1-Crear\n"
+                                    + "2-Eliminar\n"
+                                    + "3-Modificar\n"
+                                    + "4-Listar\n\n"
+                                    + "Ingrese opcion: ");
+                            op = leer.nextInt();
+                        }while(op<1||op>4);
+                        if(op ==1){
+                            Vehiculos t = CrearVehiculo();
+                            vehiculos.add(t);
+                            System.out.println("A que concecionario quiere que vaya el vehiculo? Ingrese posicion: ");
+                            int pos = leer.nextInt();
+
+                            if(pos>=0 && pos<concesionario.size()){
+                                concesionario.get(pos).getVehiculos().add(t);
                             }
-                                    
-                        }else if (vehiculos.get(pos) instanceof Bicicleta){
-                            System.out.println("Que desea modificar?\n"
-                                    + "1-color\n"
-                                    + "2-marca\n"
-                                    + "3-modelo\n"
-                                    + "4-año\n"
-                                    + "5-precio\n"
-                                    + "6-Descripcion de motor\n"
-                                    + "7-Radio\n"
-                                    + "8-Tipo\n"
-                                    + "Elija opcion:");
-                            op2 = leer.nextInt();
-                            if (op2 == 1) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Bicicleta) posicion).setColor(newVal);
-                            }else if (op2 == 2) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Bicicleta) posicion).setMarca(newVal);
-                            }else if (op2 == 3) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Bicicleta) posicion).setModelo(newVal);
-                            }else if (op2 == 4) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
-                                    ((Bicicleta) posicion).setYear(newVal);
-                            }else if (op2 == 5) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    double newVal = leer.nextDouble();
-                                    ((Bicicleta) posicion).setPrecio(newVal);
-                            }else if (op2 == 6) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Bicicleta) posicion).setDescripcion(newVal);
-                            }else if (op2 == 7) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
-                                    ((Bicicleta) posicion).setRadio(newVal);
-                            }if (op2 == 8) {
-                                    
-                                    boolean newVal;
-                                    
-                                    int op3 = 0; 
-                                    do {
-                                    System.out.println("Es electrica? \n"
-                                            + "1. Si\n"
-                                            + "2. No");
-                                    op3 = leer.nextInt();
-                                    }while(op3<1||op3>2);
-                                    if(op3 ==1 ){
-                                        newVal = true;
-                                    }
-                                    else{
-                                        newVal = false; 
-                                    }
-                                    ((Motocicleta) posicion).setElectrica(newVal);
-                                    
-                            }
-                            
-                        }else if (vehiculos.get(pos) instanceof Carro){
-                            System.out.println("Que desea modificar?\n"
-                                    + "1-color\n"
-                                    + "2-marca\n"
-                                    + "3-modelo\n"
-                                    + "4-año\n"
-                                    + "5-precio\n"
-                                    + "6-Cantidad de puertas\n"
-                                    + "7-Motor\n"
-                                    + "8-Velocidad\n"
-                                    + "Elija opcion:");
-                            op2 = leer.nextInt();
-                            if (op2 == 1) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Carro) posicion).setColor(newVal);
-                            }else if (op2 == 2) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Carro) posicion).setMarca(newVal);
-                            }else if (op2 == 3) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Carro) posicion).setModelo(newVal);
-                            }else if (op2 == 4) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
-                                    ((Carro) posicion).setYear(newVal);
-                            }else if (op2 == 5) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    double newVal = leer.nextDouble();
-                                    ((Carro) posicion).setPrecio(newVal);
-                            }else if (op2 == 6) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
-                                    ((Carro) posicion).setCant_puertas(newVal);
-                            }else if (op2 == 7) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Carro) posicion).setMotor(newVal);
-                            }if (op2 == 8) {
-                                   System.out.println("Ingrese nuevo valor:");
-                                   int newVal = leer.nextInt();
-                                   ((Carro) posicion).setVelocidad(newVal);
-                                    
-                            }
-                        }else if (vehiculos.get(pos) instanceof CamiondeCarga){
-                            System.out.println("Que desea modificar?\n"
-                                    + "1-color\n"
-                                    + "2-marca\n"
-                                    + "3-modelo\n"
-                                    + "4-año\n"
-                                    + "5-precio\n"
-                                    + "6-Volumen\n"
-                                    + "7-Altura\n"
-                                    + "8-Tiene excavadora?\n"
-                                    + "Elija opcion:");
-                            op2 = leer.nextInt();
-                            if (op2 == 1) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((CamiondeCarga) posicion).setColor(newVal);
-                            }else if (op2 == 2) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((CamiondeCarga) posicion).setMarca(newVal);
-                            }else if (op2 == 3) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((CamiondeCarga) posicion).setModelo(newVal);
-                            }else if (op2 == 4) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
-                                    ((CamiondeCarga) posicion).setYear(newVal);
-                            }else if (op2 == 5) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    double newVal = leer.nextDouble();
-                                    ((CamiondeCarga) posicion).setPrecio(newVal);
-                            }else if (op2 == 6) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
-                                    ((CamiondeCarga) posicion).setVolumen(newVal);
-                            }else if (op2 == 7) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
-                                    ((CamiondeCarga) posicion).setAltura(newVal);
-                            }if (op2 == 8) {
-                                    
-                                    boolean newVal;
-                                    
-                                    int op3 = 0; 
-                                    do {
-                                    System.out.println("Tiene retroexcavadora? \n"
-                                            + "1. Si\n"
-                                            + "2. No");
-                                    op3 = leer.nextInt();
-                                    }while(op3<1||op3>2);
-                                    if(op3 ==1 ){
-                                        newVal = true;
-                                    }
-                                    else{
-                                        newVal = false; 
-                                    }
-                                    ((CamiondeCarga) posicion).setExcavadora(newVal);
-                                    
-                            }
-                        }else if (vehiculos.get(pos) instanceof Bus){
-                            System.out.println("Que desea modificar?\n"
-                                    + "1-color\n"
-                                    + "2-marca\n"
-                                    + "3-modelo\n"
-                                    + "4-año\n"
-                                    + "5-precio\n"
-                                    + "6-Pasajeros\n"
-                                    + "Elija opcion:");
-                            op2 = leer.nextInt();
-                            if (op2 == 1) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Bus) posicion).setColor(newVal);
-                            }else if (op2 == 2) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Bus) posicion).setMarca(newVal);
-                            }else if (op2 == 3) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    leer = new Scanner(System.in);
-                                    String newVal = leer.nextLine();
-                                    ((Bus) posicion).setModelo(newVal);
-                            }else if (op2 == 4) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
-                                    ((Bus) posicion).setYear(newVal);
-                            }else if (op2 == 5) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    double newVal = leer.nextDouble();
-                                    ((Bus) posicion).setPrecio(newVal);
-                            }else if (op2 == 6) {
-                                    System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
-                                    ((Bus) posicion).setPasajeros(newVal);
-                                    if(newVal>50){
-                                        ((Bus) posicion).setTipo("De Puerta"); 
-                                    }else{
-                                        ((Bus) posicion).setTipo("Rapidito");
-                                    }
-                            }
+
+
                         }
-                        
-                        
-                    }//Modificar vehiculo
-                    if(op ==4){
-                        System.out.println(Listar(vehiculos));
-                    }
-                    break; 
+                        if(op ==2){
+                            int pos ;
+                            System.out.println("Ingresa la posicion del vehiculo a eliminar: ");
+                            pos = leer.nextInt();
+                            if(pos>=0 && pos<vehiculos.size()){
+                                vehiculos.remove(pos);
+                            } 
+                        }
+                        if(op ==3){
+                            int pos ;
+                            do{
+                            System.out.println("Ingresa la posicion del vehiculo a modificar: ");
+                            pos = leer.nextInt();
+                            }while(pos<0|| pos>vehiculos.size());
+                            Object posicion = vehiculos.get(pos);
+
+                            int op2 = 0;
+                            if(vehiculos.get(pos) instanceof Motocicleta){
+                                System.out.println("Que desea modificar?\n"
+                                        + "1-color\n"
+                                        + "2-marca\n"
+                                        + "3-modelo\n"
+                                        + "4-año\n"
+                                        + "5-precio\n"
+                                        + "6-Desplazamiento\n"
+                                        + "7-Es electrica?\n"
+                                        + "Elija opcion:");
+                                op2 = leer.nextInt();
+                                if (op2 == 1) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Motocicleta) posicion).setColor(newVal);
+                                }else if (op2 == 2) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Motocicleta) posicion).setMarca(newVal);
+                                }else if (op2 == 3) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Motocicleta) posicion).setModelo(newVal);
+                                }else if (op2 == 4) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        int newVal = leer.nextInt();
+                                        ((Motocicleta) posicion).setYear(newVal);
+                                }else if (op2 == 5) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        double newVal = leer.nextDouble();
+                                        ((Motocicleta) posicion).setPrecio(newVal);
+                                }else if (op2 == 6) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        int newVal = leer.nextInt();
+                                        ((Motocicleta) posicion).setDesplazamiento(newVal);
+                                }if (op2 == 7) {
+
+                                        String tipo;
+
+                                        int op3 = 0; 
+
+                                        do {
+                                        System.out.println("Tipo de Bicicleta \n"
+                                                + "1. BMX\n"
+                                                + "2. de calle");
+                                        op3 = leer.nextInt();
+                                        }while(op3<1||op3>2);
+                                        if(op2 ==1 ){
+                                            tipo = "BMX";
+                                        }
+                                        else{
+                                            tipo = "de calle"; 
+                                        }
+
+                                        ((Bicicleta) posicion).setTipo(tipo);  
+                                }
+
+                            }else if (vehiculos.get(pos) instanceof Bicicleta){
+                                System.out.println("Que desea modificar?\n"
+                                        + "1-color\n"
+                                        + "2-marca\n"
+                                        + "3-modelo\n"
+                                        + "4-año\n"
+                                        + "5-precio\n"
+                                        + "6-Descripcion de motor\n"
+                                        + "7-Radio\n"
+                                        + "8-Tipo\n"
+                                        + "Elija opcion:");
+                                op2 = leer.nextInt();
+                                if (op2 == 1) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Bicicleta) posicion).setColor(newVal);
+                                }else if (op2 == 2) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Bicicleta) posicion).setMarca(newVal);
+                                }else if (op2 == 3) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Bicicleta) posicion).setModelo(newVal);
+                                }else if (op2 == 4) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        int newVal = leer.nextInt();
+                                        ((Bicicleta) posicion).setYear(newVal);
+                                }else if (op2 == 5) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        double newVal = leer.nextDouble();
+                                        ((Bicicleta) posicion).setPrecio(newVal);
+                                }else if (op2 == 6) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Bicicleta) posicion).setDescripcion(newVal);
+                                }else if (op2 == 7) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        int newVal = leer.nextInt();
+                                        ((Bicicleta) posicion).setRadio(newVal);
+                                }if (op2 == 8) {
+
+                                        boolean newVal;
+
+                                        int op3 = 0; 
+                                        do {
+                                        System.out.println("Es electrica? \n"
+                                                + "1. Si\n"
+                                                + "2. No");
+                                        op3 = leer.nextInt();
+                                        }while(op3<1||op3>2);
+                                        if(op3 ==1 ){
+                                            newVal = true;
+                                        }
+                                        else{
+                                            newVal = false; 
+                                        }
+                                        ((Motocicleta) posicion).setElectrica(newVal);
+
+                                }
+
+                            }else if (vehiculos.get(pos) instanceof Carro){
+                                System.out.println("Que desea modificar?\n"
+                                        + "1-color\n"
+                                        + "2-marca\n"
+                                        + "3-modelo\n"
+                                        + "4-año\n"
+                                        + "5-precio\n"
+                                        + "6-Cantidad de puertas\n"
+                                        + "7-Motor\n"
+                                        + "8-Velocidad\n"
+                                        + "Elija opcion:");
+                                op2 = leer.nextInt();
+                                if (op2 == 1) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Carro) posicion).setColor(newVal);
+                                }else if (op2 == 2) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Carro) posicion).setMarca(newVal);
+                                }else if (op2 == 3) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Carro) posicion).setModelo(newVal);
+                                }else if (op2 == 4) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        int newVal = leer.nextInt();
+                                        ((Carro) posicion).setYear(newVal);
+                                }else if (op2 == 5) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        double newVal = leer.nextDouble();
+                                        ((Carro) posicion).setPrecio(newVal);
+                                }else if (op2 == 6) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        int newVal = leer.nextInt();
+                                        ((Carro) posicion).setCant_puertas(newVal);
+                                }else if (op2 == 7) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Carro) posicion).setMotor(newVal);
+                                }if (op2 == 8) {
+                                       System.out.println("Ingrese nuevo valor:");
+                                       int newVal = leer.nextInt();
+                                       ((Carro) posicion).setVelocidad(newVal);
+
+                                }
+                            }else if (vehiculos.get(pos) instanceof CamiondeCarga){
+                                System.out.println("Que desea modificar?\n"
+                                        + "1-color\n"
+                                        + "2-marca\n"
+                                        + "3-modelo\n"
+                                        + "4-año\n"
+                                        + "5-precio\n"
+                                        + "6-Volumen\n"
+                                        + "7-Altura\n"
+                                        + "8-Tiene excavadora?\n"
+                                        + "Elija opcion:");
+                                op2 = leer.nextInt();
+                                if (op2 == 1) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((CamiondeCarga) posicion).setColor(newVal);
+                                }else if (op2 == 2) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((CamiondeCarga) posicion).setMarca(newVal);
+                                }else if (op2 == 3) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((CamiondeCarga) posicion).setModelo(newVal);
+                                }else if (op2 == 4) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        int newVal = leer.nextInt();
+                                        ((CamiondeCarga) posicion).setYear(newVal);
+                                }else if (op2 == 5) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        double newVal = leer.nextDouble();
+                                        ((CamiondeCarga) posicion).setPrecio(newVal);
+                                }else if (op2 == 6) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        int newVal = leer.nextInt();
+                                        ((CamiondeCarga) posicion).setVolumen(newVal);
+                                }else if (op2 == 7) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        int newVal = leer.nextInt();
+                                        ((CamiondeCarga) posicion).setAltura(newVal);
+                                }if (op2 == 8) {
+
+                                        boolean newVal;
+
+                                        int op3 = 0; 
+                                        do {
+                                        System.out.println("Tiene retroexcavadora? \n"
+                                                + "1. Si\n"
+                                                + "2. No");
+                                        op3 = leer.nextInt();
+                                        }while(op3<1||op3>2);
+                                        if(op3 ==1 ){
+                                            newVal = true;
+                                        }
+                                        else{
+                                            newVal = false; 
+                                        }
+                                        ((CamiondeCarga) posicion).setExcavadora(newVal);
+
+                                }
+                            }else if (vehiculos.get(pos) instanceof Bus){
+                                System.out.println("Que desea modificar?\n"
+                                        + "1-color\n"
+                                        + "2-marca\n"
+                                        + "3-modelo\n"
+                                        + "4-año\n"
+                                        + "5-precio\n"
+                                        + "6-Pasajeros\n"
+                                        + "Elija opcion:");
+                                op2 = leer.nextInt();
+                                if (op2 == 1) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Bus) posicion).setColor(newVal);
+                                }else if (op2 == 2) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Bus) posicion).setMarca(newVal);
+                                }else if (op2 == 3) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        leer = new Scanner(System.in);
+                                        String newVal = leer.nextLine();
+                                        ((Bus) posicion).setModelo(newVal);
+                                }else if (op2 == 4) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        int newVal = leer.nextInt();
+                                        ((Bus) posicion).setYear(newVal);
+                                }else if (op2 == 5) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        double newVal = leer.nextDouble();
+                                        ((Bus) posicion).setPrecio(newVal);
+                                }else if (op2 == 6) {
+                                        System.out.println("Ingrese nuevo valor:");
+                                        int newVal = leer.nextInt();
+                                        ((Bus) posicion).setPasajeros(newVal);
+                                        if(newVal>50){
+                                            ((Bus) posicion).setTipo("De Puerta"); 
+                                        }else{
+                                            ((Bus) posicion).setTipo("Rapidito");
+                                        }
+                                }
+                            }
+                        }//Modificar vehiculo
+                        if(op ==4){
+                            System.out.println(Listar(vehiculos));
+                        }
+                        break;
+                    }//Validacion
+                     
                 }  
                 case 4:{
                     int op=0;
@@ -464,7 +465,33 @@ public class Lab3P2_TatianaGarcia {
                         } 
                     }
                     if(op ==2){
-                        
+                        System.out.println(ListarS(clientes));
+                        System.out.println("Ingrese la posicion del cliente que desea vender vehiculo: ");       
+                        int pos = leer.nextInt();
+                        if(pos>=0 && pos<clientes.size()){
+                            System.out.println(Listar(clientes.get(pos).getVehiculos()));
+                            System.out.println("Ingrese la posicion del vehiculo: ");       
+                            int pos2 = leer.nextInt();
+                            if(pos2>=0 && pos<clientes.get(pos).getVehiculos().size()){
+                                System.out.println(ListarS(concesionario));
+                                System.out.println("Ingresar la posicion de la concesionaria: ");
+                                int pos3 = leer.nextInt();
+                                if(pos3>=0 && pos3<concesionario.size()){
+                                    concesionario.get(pos).getClientes().add(clientes.get(pos2));
+                                    double precio = (concesionario.get(pos).getVehiculos().get(pos3).getPrecio());
+                                    double saldonew = (clientes.get(pos2).getSaldo())  + precio;
+                                    double saldo2new = (concesionario.get(pos).getSaldo()) - precio;
+                                    
+                                    if(saldonew>=0){
+                                        clientes.get(pos2).setSaldo(saldonew);
+                                        concesionario.get(pos).setSaldo(saldo2new);
+                                    }else{
+                                        System.out.println("No hay suficiente dinero para la venta");
+                                    }
+
+                                } 
+                            } 
+                        } 
                     }
                     
                     break; 
