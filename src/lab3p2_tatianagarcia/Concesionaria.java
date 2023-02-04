@@ -9,12 +9,12 @@ public class Concesionaria {
     private String direccion; 
     private ArrayList<Vehiculos>vehiculos = new ArrayList();//vehiculos para venta
     private ArrayList<Clientes>clientes = new ArrayList();
-    private int saldo; //para transacciones de compra y venta
+    private double saldo; //para transacciones de compra y venta
 
     public Concesionaria() {
     }
 
-    public Concesionaria(String nombre, int ID, String direccion, int saldo) {
+    public Concesionaria(String nombre, int ID, String direccion, double saldo) {
         this.nombre = nombre;
         this.ID = ID;
         this.direccion = direccion;
@@ -61,11 +61,11 @@ public class Concesionaria {
         this.clientes = clientes;
     }
 
-    public int getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(int saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 

@@ -7,12 +7,12 @@ public class Clientes {
     private int ID; 
     private String nombre;
     private ArrayList<Vehiculos>vehiculos = new ArrayList();///Vehiculos a propiedad del cliente 
-    private int saldo; //Modificado cade q se compre o venda vehiculo
+    private double saldo; //Modificado cade q se compre o venda vehiculo
 
     public Clientes() {
     }
 
-    public Clientes(int ID, String nombre, int saldo) {
+    public Clientes(int ID, String nombre, double saldo) {
         this.ID = ID;
         this.nombre = nombre;
         this.saldo = saldo;
@@ -42,11 +42,11 @@ public class Clientes {
         this.vehiculos = vehiculos;
     }
 
-    public int getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(int saldo) {
+    public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
 

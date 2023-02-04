@@ -9,7 +9,7 @@ public class Motocicleta extends Vehiculos{
         super();
     }
 
-    public Motocicleta(int desplazamiento, boolean electrica, String color, String marca, String modelo, int year, int precio, int cant_llantas) {
+    public Motocicleta(int desplazamiento, boolean electrica, String color, String marca, String modelo, int year, double precio, int cant_llantas) {
         super(color, marca, modelo, year, precio, cant_llantas);
         this.desplazamiento = desplazamiento;
         this.electrica = electrica;

@@ -167,7 +167,7 @@ public class Lab3P2_TatianaGarcia {
                                     ((Motocicleta) posicion).setYear(newVal);
                             }else if (op2 == 5) {
                                     System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
+                                    double newVal = leer.nextDouble();
                                     ((Motocicleta) posicion).setPrecio(newVal);
                             }else if (op2 == 6) {
                                     System.out.println("Ingrese nuevo valor:");
@@ -228,7 +228,7 @@ public class Lab3P2_TatianaGarcia {
                                     ((Bicicleta) posicion).setYear(newVal);
                             }else if (op2 == 5) {
                                     System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
+                                    double newVal = leer.nextDouble();
                                     ((Bicicleta) posicion).setPrecio(newVal);
                             }else if (op2 == 6) {
                                     System.out.println("Ingrese nuevo valor:");
@@ -293,7 +293,7 @@ public class Lab3P2_TatianaGarcia {
                                     ((Carro) posicion).setYear(newVal);
                             }else if (op2 == 5) {
                                     System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
+                                    double newVal = leer.nextDouble();
                                     ((Carro) posicion).setPrecio(newVal);
                             }else if (op2 == 6) {
                                     System.out.println("Ingrese nuevo valor:");
@@ -343,7 +343,7 @@ public class Lab3P2_TatianaGarcia {
                                     ((CamiondeCarga) posicion).setYear(newVal);
                             }else if (op2 == 5) {
                                     System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
+                                    double newVal = leer.nextDouble();
                                     ((CamiondeCarga) posicion).setPrecio(newVal);
                             }else if (op2 == 6) {
                                     System.out.println("Ingrese nuevo valor:");
@@ -404,7 +404,7 @@ public class Lab3P2_TatianaGarcia {
                                     ((Bus) posicion).setYear(newVal);
                             }else if (op2 == 5) {
                                     System.out.println("Ingrese nuevo valor:");
-                                    int newVal = leer.nextInt();
+                                    double newVal = leer.nextDouble();
                                     ((Bus) posicion).setPrecio(newVal);
                             }else if (op2 == 6) {
                                     System.out.println("Ingrese nuevo valor:");
@@ -439,16 +439,29 @@ public class Lab3P2_TatianaGarcia {
                         int pos = leer.nextInt();
                         if(pos>=0 && pos<concesionario.size()){
                             System.out.println(Listar(concesionario.get(pos).getVehiculos()));
+                            System.out.println("Ingrese la posicion del vehiculo a comprar: ");
+                            
+                            int pos3 = leer.nextInt();
+                            if(pos3>=0 && pos3<concesionario.get(pos).getVehiculos().size()){
+                                System.out.println(ListarS(clientes));
+                                System.out.println("Ingrese la posicion del cliente que desea comprar vehiculo: ");
+                                
+                                int pos2 = leer.nextInt();
+                                if(pos2>=0 && pos2<clientes.size()){
+                                    concesionario.get(pos).getClientes().add(clientes.get(pos2));
+                                    double precio = (concesionario.get(pos).getVehiculos().get(pos3).getPrecio());
+                                    double saldonew = (clientes.get(pos2).getSaldo())  - precio - precio*0.075;
+                                    double saldo2new = (concesionario.get(pos).getSaldo()) + precio +precio*0.075;
+                                    
+                                    if(saldonew>=0){
+                                        clientes.get(pos2).setSaldo(saldonew);
+                                        concesionario.get(pos).setSaldo(saldo2new);
+                                    }else{
+                                        System.out.println("No hay suficiente dinero para la compra");
+                                    }
+                                } 
+                            }
                         } 
-                        
-                        System.out.println(ListarS(clientes));
-                        System.out.println("Ingrese la posicion del cliente que desea comprar vehiculo: ");
-                        int pos2 = leer.nextInt();
-                        if(pos2>=0 && pos2<clientes.size()){
-                            concesionario.get(pos).getClientes().add(clientes.get(pos2));
-                        } 
-                        
-                        
                     }
                     if(op ==2){
                         
@@ -470,7 +483,7 @@ public class Lab3P2_TatianaGarcia {
         Clientes retorno;
         String nombre;
         ArrayList<Vehiculos>vehiculos = new ArrayList();///Vehiculos a propiedad del cliente 
-        int saldo;
+        double saldo;
         
         System.out.println("Ingrese nombre de concesionaria: ");
         leer = new Scanner(System.in);
@@ -478,7 +491,7 @@ public class Lab3P2_TatianaGarcia {
         
         System.out.println("Ingrese saldo ");
         leer = new Scanner(System.in);
-        saldo = leer.nextInt();
+        saldo = leer.nextDouble();
         
         
         
@@ -492,7 +505,7 @@ public class Lab3P2_TatianaGarcia {
         String direccion; 
         ArrayList<Vehiculos>vehiculos = new ArrayList();//vehiculos para venta
         ArrayList<Clientes>clientes = new ArrayList();
-        int saldo;
+        double saldo;
         
         System.out.println("Ingrese nombre de concesionaria: ");
         leer = new Scanner(System.in);
@@ -504,7 +517,7 @@ public class Lab3P2_TatianaGarcia {
         
         System.out.println("Ingrese saldo ");
         leer = new Scanner(System.in);
-        saldo = leer.nextInt();
+        saldo = leer.nextDouble();
         
         retorno = new Concesionaria(nombre, concesionario.size()+1, direccion, saldo);
         return retorno; 
@@ -515,7 +528,7 @@ public class Lab3P2_TatianaGarcia {
         String marca; 
         String modelo; 
         int year; 
-        int precio; 
+        double precio; 
         int cant_llantas;
         
         System.out.println("Ingrese color: ");
@@ -534,7 +547,7 @@ public class Lab3P2_TatianaGarcia {
         year = leer.nextInt();
         
         System.out.println("Ingrese precio: ");
-        precio = leer.nextInt();
+        precio = leer.nextDouble();
         
         cant_llantas =0;
         do{
